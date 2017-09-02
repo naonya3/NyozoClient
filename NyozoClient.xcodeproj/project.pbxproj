@@ -13,7 +13,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		755F7DA61F56E86E00413057 /* NyozoClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NyozoClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		755F7DA61F56E86E00413057 /* Nyozo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nyozo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		755F7DA91F56E86E00413057 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		755F7DAD1F56E86E00413057 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		755F7DB21F56E86E00413057 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		755F7DA71F56E86E00413057 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				755F7DA61F56E86E00413057 /* NyozoClient.app */,
+				755F7DA61F56E86E00413057 /* Nyozo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,7 +75,7 @@
 			);
 			name = NyozoClient;
 			productName = NyozoClient;
-			productReference = 755F7DA61F56E86E00413057 /* NyozoClient.app */;
+			productReference = 755F7DA61F56E86E00413057 /* Nyozo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -236,7 +236,7 @@
 				INFOPLIST_FILE = NyozoClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.naonya3.NyozoClient;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nyozo;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -249,7 +249,7 @@
 				INFOPLIST_FILE = NyozoClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.naonya3.NyozoClient;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nyozo;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -273,6 +273,7 @@
 				755F7DB71F56E86E00413057 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
