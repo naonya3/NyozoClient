@@ -60,6 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         request.url = url
         request.httpMethod = "POST"
         request.timeoutInterval = 30.0
+        request.setValue("Gyazo", forHTTPHeaderField: "User-Agent")
         
         let boundary:String = "---------------------------skdjalksdjl"
         var body = Data()
@@ -87,8 +88,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
-        let task = session.dataTask(with: request as URLRequest) { (d, r, e) in
-            print(d,r,e)
+        let task = session.dataTask(with: request as URLRequest) { (data, r, e) in
+            if let d = data, let str = String(data:d, encoding: .utf8), let url = URL(string: str) {
+                NSWorkspace.shared().open(url)
+            }
             NSApp.terminate(nil)
         }
         task.resume()
