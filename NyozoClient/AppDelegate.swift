@@ -8,15 +8,17 @@
 
 import Cocoa
 
-
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    var url: String?
+    var token: String?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        setup()
         let cmd = "/usr/sbin/screencapture"
         let task = Process()
         task.launchPath = cmd
-        task.arguments  = ["-i","-c","tmp.png"]
+        task.arguments = ["-i","-c","tmp.png"]
         task.launch()
         task.waitUntilExit()
         
@@ -37,9 +39,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
+    
+    func setup() {
+        do {
+            let jsonData = try Data(contentsOf: FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent(".nyozo/config").appendingPathExtension("json"))
+            let json = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
+            guard let dict = json as? Dictionary<String, Any> else { fatalError("invalid config.json") }
+            guard let services = dict["services"] as? Array<Dictionary<String, Any>> else { fatalError("invalid config.json") }
+            url = services.first?["url"] as? String
+            token = services.first?["token"] as? String
+        } catch(let e) {
+            print(e)
+        }
+    }
+    
     func post(_ image: Data) {
-        let url = URL(string: "http://example.com/upload.cgi")!
+        guard let urlStr = self.url, let url = URL(string: urlStr) else { fatalError("invalid url") }
+        
         let request = NSMutableURLRequest()
         request.url = url
         request.httpMethod = "POST"
@@ -53,7 +69,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         postData += "--\(boundary)\r\n"
         postData += "Content-Disposition: form-data; name=\"imagedata\"; filename=\"name\"\r\n"
         postData += "Content-Type: image/png\r\n\r\n"
-
+        
         body.append(postData.data(using: String.Encoding.utf8)!)
         body.append(image)
         
@@ -64,6 +80,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         body.append(postData.data(using: String.Encoding.utf8)!)
         
         request.httpBody = body
+        
+        if let token = token {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
