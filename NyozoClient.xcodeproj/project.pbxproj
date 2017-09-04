@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7534F1581F5D9AD20087E861 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7534F1571F5D9AD20087E861 /* Config.swift */; };
 		755F7DAA1F56E86E00413057 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F7DA91F56E86E00413057 /* AppDelegate.swift */; };
 		755F7DAE1F56E86E00413057 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 755F7DAD1F56E86E00413057 /* Assets.xcassets */; };
 		755F7DBB1F5714CF00413057 /* NyozoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F7DBA1F5714CF00413057 /* NyozoApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7534F1571F5D9AD20087E861 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		755F7DA61F56E86E00413057 /* Nyozo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nyozo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		755F7DA91F56E86E00413057 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		755F7DAD1F56E86E00413057 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			children = (
 				755F7DBA1F5714CF00413057 /* NyozoApp.swift */,
 				755F7DA91F56E86E00413057 /* AppDelegate.swift */,
+				7534F1571F5D9AD20087E861 /* Config.swift */,
 				755F7DAD1F56E86E00413057 /* Assets.xcassets */,
 				755F7DB21F56E86E00413057 /* Info.plist */,
 			);
@@ -129,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				755F7DAA1F56E86E00413057 /* AppDelegate.swift in Sources */,
+				7534F1581F5D9AD20087E861 /* Config.swift in Sources */,
 				755F7DBB1F5714CF00413057 /* NyozoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,6 +240,7 @@
 				INFOPLIST_FILE = NyozoClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.naonya3.NyozoClient;
+				PRODUCT_MODULE_NAME = NyozoClient;
 				PRODUCT_NAME = Nyozo;
 				SWIFT_VERSION = 3.0;
 			};
@@ -249,6 +254,7 @@
 				INFOPLIST_FILE = NyozoClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.naonya3.NyozoClient;
+				PRODUCT_MODULE_NAME = NyozoClient;
 				PRODUCT_NAME = Nyozo;
 				SWIFT_VERSION = 3.0;
 			};
