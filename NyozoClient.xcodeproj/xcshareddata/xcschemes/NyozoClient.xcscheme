@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "755F7DA51F56E86E00413057"
-               BuildableName = "NyozoClient.app"
+               BuildableName = "Nyozo.app"
                BlueprintName = "NyozoClient"
                ReferencedContainer = "container:NyozoClient.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "755F7DA51F56E86E00413057"
-            BuildableName = "NyozoClient.app"
+            BuildableName = "Nyozo.app"
             BlueprintName = "NyozoClient"
             ReferencedContainer = "container:NyozoClient.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "755F7DA51F56E86E00413057"
-            BuildableName = "NyozoClient.app"
+            BuildableName = "Nyozo.app"
             BlueprintName = "NyozoClient"
             ReferencedContainer = "container:NyozoClient.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "755F7DA51F56E86E00413057"
-            BuildableName = "NyozoClient.app"
+            BuildableName = "Nyozo.app"
             BlueprintName = "NyozoClient"
             ReferencedContainer = "container:NyozoClient.xcodeproj">
          </BuildableReference>
