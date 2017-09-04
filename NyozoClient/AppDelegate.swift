@@ -10,8 +10,7 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var url: String?
-    var token: String?
+    var config: Config?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         setup()
@@ -44,20 +43,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         do {
             let jsonData = try Data(contentsOf: FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent(".nyozo/config").appendingPathExtension("json"))
             let json = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
-            guard let dict = json as? Dictionary<String, Any> else { fatalError("invalid config.json") }
-            guard let services = dict["services"] as? Array<Dictionary<String, Any>> else { fatalError("invalid config.json") }
-            url = services.first?["url"] as? String
-            token = services.first?["token"] as? String
+            config = Config.parse(json: json as! ConfigJson)
         } catch(let e) {
             print(e)
         }
     }
     
     func post(_ image: Data) {
-        guard let urlStr = self.url, let url = URL(string: urlStr) else { fatalError("invalid url") }
+        guard let service = self.config?.services.first else {
+            fatalError("invalid config")
+        }
         
         let request = NSMutableURLRequest()
-        request.url = url
+        request.url = service.url
         request.httpMethod = "POST"
         request.timeoutInterval = 30.0
         request.setValue("Gyazo", forHTTPHeaderField: "User-Agent")
@@ -82,7 +80,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         request.httpBody = body
         
-        if let token = token {
+        if let token = service.token {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
         
